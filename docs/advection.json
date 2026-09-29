@@ -1,16 +1,131 @@
 {
   "slice_z": 0.65,
+  "source_frames": 166,
   "frames": 76,
   "fps": 5,
+  "compression": {
+    "temporal_stride": 2,
+    "palette_colors": 128,
+    "duration_ms": 16600
+  },
   "display": "Latest numerical state, held until the next actual solver step; no extra time steps.",
   "analytical": "Pointwise exact Gaussian at the display time on the fixed z slice; numerical panels hold their labelled solver times.",
   "measurements": [
     {
-      "adaptation": "hierarchical-haar-v2-partial",
+      "adaptation": "hierarchical-haar-v3-balanced",
+      "balancing": true,
+      "balance_history": [
+        {
+          "time": 0.0,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.1,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.2,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.30000000000000004,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.4,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.5,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.6,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.7,
+          "input_cells": 456,
+          "output_cells": 460,
+          "added_cells": 4,
+          "rounds": 1
+        },
+        {
+          "time": 0.7999999999999999,
+          "input_cells": 456,
+          "output_cells": 460,
+          "added_cells": 4,
+          "rounds": 1
+        },
+        {
+          "time": 0.8999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.9999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.0999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.2,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.3,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.4000000000000001,
+          "input_cells": 456,
+          "output_cells": 460,
+          "added_cells": 4,
+          "rounds": 1
+        }
+      ],
+      "maximum_cells": 460,
       "case": "stripe3d",
       "strategy": "directional",
       "budget": 456,
-      "cells": 456,
+      "cells": 460,
       "final_time": 1.5,
       "regrid_interval": 0.1,
       "lookahead": true,
@@ -47,11 +162,11 @@
         },
         {
           "time": 0.7999999999999999,
-          "cells": 456
+          "cells": 460
         },
         {
           "time": 0.8999999999999999,
-          "cells": 456
+          "cells": 460
         },
         {
           "time": 0.9999999999999999,
@@ -75,25 +190,134 @@
         },
         {
           "time": 1.5,
-          "cells": 456
+          "cells": 460
         }
       ],
-      "physical_l2": 0.03951200865973489,
-      "cell_average_l1": 0.02223319756061932,
-      "cell_average_l2": 0.03872426675878432,
+      "physical_l2": 0.03816793363563512,
+      "cell_average_l1": 0.02127515442288769,
+      "cell_average_l2": 0.03759216291350262,
       "minimum": 3.525263851057644e-16,
       "mass_balance_error": 2.9197564505034634e-16,
-      "remap_mass_error": 1.3877787807814457e-16,
+      "remap_mass_error": 2.498001805406602e-16,
       "volume_weighted_levels": [
-        6.53125,
+        6.546875,
         1.0,
         1.0
       ],
       "max_aspect_ratio": 128.0,
-      "changed_leaf_keys": 888
+      "changed_leaf_keys": 892
     },
     {
-      "adaptation": "hierarchical-haar-v2-partial",
+      "adaptation": "hierarchical-haar-v3-balanced",
+      "balancing": true,
+      "balance_history": [
+        {
+          "time": 0.0,
+          "input_cells": 456,
+          "output_cells": 533,
+          "added_cells": 77,
+          "rounds": 2
+        },
+        {
+          "time": 0.1,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.2,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.30000000000000004,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.4,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.5,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.6,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.7,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.7999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.8999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.9999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.0999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.2,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.3,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.4000000000000001,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        }
+      ],
+      "maximum_cells": 533,
       "case": "stripe3d",
       "strategy": "isotropic",
       "budget": 456,
@@ -106,7 +330,7 @@
       "cell_history": [
         {
           "time": 0.1,
-          "cells": 456
+          "cells": 533
         },
         {
           "time": 0.2,
@@ -165,109 +389,327 @@
           "cells": 456
         }
       ],
-      "physical_l2": 0.24046436069112373,
-      "cell_average_l1": 0.12187627868162051,
-      "cell_average_l2": 0.21667109418185157,
-      "minimum": 3.3556636654943746e-05,
-      "mass_balance_error": 7.001777629911388e-16,
-      "remap_mass_error": 4.440892098500626e-16,
+      "physical_l2": 0.23933593265450293,
+      "cell_average_l1": 0.12072401150411924,
+      "cell_average_l2": 0.21541806551673126,
+      "minimum": 1.4400980256062965e-12,
+      "mass_balance_error": 6.826136877968736e-16,
+      "remap_mass_error": 4.163336342344337e-16,
       "volume_weighted_levels": [
         2.875,
         2.875,
         2.875
       ],
       "max_aspect_ratio": 1.0,
-      "changed_leaf_keys": 584
+      "changed_leaf_keys": 549
     },
     {
-      "adaptation": "hierarchical-haar-v2-partial",
+      "adaptation": "hierarchical-haar-v3-balanced",
+      "balancing": true,
+      "balance_history": [
+        {
+          "time": 0.0,
+          "input_cells": 456,
+          "output_cells": 581,
+          "added_cells": 125,
+          "rounds": 3
+        },
+        {
+          "time": 0.1,
+          "input_cells": 456,
+          "output_cells": 531,
+          "added_cells": 75,
+          "rounds": 3
+        },
+        {
+          "time": 0.2,
+          "input_cells": 456,
+          "output_cells": 488,
+          "added_cells": 32,
+          "rounds": 3
+        },
+        {
+          "time": 0.30000000000000004,
+          "input_cells": 456,
+          "output_cells": 497,
+          "added_cells": 41,
+          "rounds": 3
+        },
+        {
+          "time": 0.4,
+          "input_cells": 456,
+          "output_cells": 499,
+          "added_cells": 43,
+          "rounds": 4
+        },
+        {
+          "time": 0.5,
+          "input_cells": 456,
+          "output_cells": 490,
+          "added_cells": 34,
+          "rounds": 2
+        },
+        {
+          "time": 0.6,
+          "input_cells": 456,
+          "output_cells": 478,
+          "added_cells": 22,
+          "rounds": 2
+        },
+        {
+          "time": 0.7,
+          "input_cells": 456,
+          "output_cells": 494,
+          "added_cells": 38,
+          "rounds": 3
+        },
+        {
+          "time": 0.7999999999999999,
+          "input_cells": 456,
+          "output_cells": 476,
+          "added_cells": 20,
+          "rounds": 1
+        },
+        {
+          "time": 0.8999999999999999,
+          "input_cells": 456,
+          "output_cells": 475,
+          "added_cells": 19,
+          "rounds": 3
+        },
+        {
+          "time": 0.9999999999999999,
+          "input_cells": 456,
+          "output_cells": 480,
+          "added_cells": 24,
+          "rounds": 4
+        },
+        {
+          "time": 1.0999999999999999,
+          "input_cells": 456,
+          "output_cells": 466,
+          "added_cells": 10,
+          "rounds": 2
+        },
+        {
+          "time": 1.2,
+          "input_cells": 456,
+          "output_cells": 481,
+          "added_cells": 25,
+          "rounds": 2
+        },
+        {
+          "time": 1.3,
+          "input_cells": 456,
+          "output_cells": 463,
+          "added_cells": 7,
+          "rounds": 1
+        },
+        {
+          "time": 1.4000000000000001,
+          "input_cells": 456,
+          "output_cells": 478,
+          "added_cells": 22,
+          "rounds": 2
+        }
+      ],
+      "maximum_cells": 581,
       "case": "ellipsoid3d",
       "strategy": "directional",
       "budget": 456,
-      "cells": 456,
+      "cells": 478,
       "final_time": 1.5,
       "regrid_interval": 0.1,
       "lookahead": true,
-      "steps": 79,
+      "steps": 78,
       "regrids": 14,
       "cell_history": [
         {
           "time": 0.1,
-          "cells": 456
+          "cells": 581
         },
         {
           "time": 0.2,
-          "cells": 456
+          "cells": 531
         },
         {
           "time": 0.30000000000000004,
-          "cells": 456
+          "cells": 488
         },
         {
           "time": 0.4,
-          "cells": 456
+          "cells": 497
         },
         {
           "time": 0.5,
-          "cells": 456
+          "cells": 499
         },
         {
           "time": 0.6,
-          "cells": 456
+          "cells": 490
         },
         {
           "time": 0.7,
-          "cells": 456
+          "cells": 478
         },
         {
           "time": 0.7999999999999999,
-          "cells": 456
+          "cells": 494
         },
         {
           "time": 0.8999999999999999,
-          "cells": 456
+          "cells": 476
         },
         {
           "time": 0.9999999999999999,
-          "cells": 456
+          "cells": 475
         },
         {
           "time": 1.0999999999999999,
-          "cells": 456
+          "cells": 480
         },
         {
           "time": 1.2,
-          "cells": 456
+          "cells": 466
         },
         {
           "time": 1.3,
-          "cells": 456
+          "cells": 481
         },
         {
           "time": 1.4000000000000001,
-          "cells": 456
+          "cells": 463
         },
         {
           "time": 1.5,
-          "cells": 456
+          "cells": 478
         }
       ],
-      "physical_l2": 0.10120228240149767,
-      "cell_average_l1": 0.03142735043410229,
-      "cell_average_l2": 0.07781045954742241,
-      "minimum": 7.135719652482738e-18,
-      "mass_balance_error": 6.071532165918825e-17,
-      "remap_mass_error": 4.85722573273506e-17,
+      "physical_l2": 0.08628264089768192,
+      "cell_average_l1": 0.029873960827321105,
+      "cell_average_l2": 0.06538028432370113,
+      "minimum": 2.923671538603195e-14,
+      "mass_balance_error": 5.117434254131581e-17,
+      "remap_mass_error": 5.551115123125783e-17,
       "volume_weighted_levels": [
-        3.9609375,
-        3.62890625,
-        1.1015625
+        5.283203125,
+        2.255859375,
+        1.03125
       ],
       "max_aspect_ratio": 64.0,
-      "changed_leaf_keys": 898
+      "changed_leaf_keys": 1043
     },
     {
-      "adaptation": "hierarchical-haar-v2-partial",
+      "adaptation": "hierarchical-haar-v3-balanced",
+      "balancing": true,
+      "balance_history": [
+        {
+          "time": 0.0,
+          "input_cells": 456,
+          "output_cells": 526,
+          "added_cells": 70,
+          "rounds": 2
+        },
+        {
+          "time": 0.1,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.2,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.30000000000000004,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.4,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.5,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.6,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.7,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.7999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.8999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 0.9999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.0999999999999999,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.2,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.3,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        },
+        {
+          "time": 1.4000000000000001,
+          "input_cells": 456,
+          "output_cells": 456,
+          "added_cells": 0,
+          "rounds": 0
+        }
+      ],
+      "maximum_cells": 526,
       "case": "ellipsoid3d",
       "strategy": "isotropic",
       "budget": 456,
@@ -280,7 +722,7 @@
       "cell_history": [
         {
           "time": 0.1,
-          "cells": 456
+          "cells": 526
         },
         {
           "time": 0.2,
@@ -339,25 +781,19 @@
           "cells": 456
         }
       ],
-      "physical_l2": 0.10299772825265759,
-      "cell_average_l1": 0.0433499318719359,
-      "cell_average_l2": 0.08297367899306693,
-      "minimum": 4.059828935678833e-06,
-      "mass_balance_error": 8.261620554339544e-17,
-      "remap_mass_error": 5.551115123125783e-17,
+      "physical_l2": 0.10285860812224544,
+      "cell_average_l1": 0.04335115122615021,
+      "cell_average_l2": 0.08280092176589507,
+      "minimum": 1.5162268461149955e-14,
+      "mass_balance_error": 1.0668549377257364e-16,
+      "remap_mass_error": 4.163336342344337e-17,
       "volume_weighted_levels": [
         2.875,
         2.875,
         2.875
       ],
       "max_aspect_ratio": 1.0,
-      "changed_leaf_keys": 728
+      "changed_leaf_keys": 702
     }
-  ],
-  "source_frames": 166,
-  "compression": {
-    "temporal_stride": 2,
-    "palette_colors": 128,
-    "duration_ms": 16600
-  }
+  ]
 }

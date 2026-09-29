@@ -55,6 +55,7 @@ def main():
     parser.add_argument("--budgets", type=int, nargs="+", default=[64, 120, 232, 456])
     parser.add_argument("--final-time", type=float, default=0.3)
     parser.add_argument("--no-lookahead", action="store_true")
+    parser.add_argument("--no-balance", action="store_true")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     rows = []
@@ -68,6 +69,7 @@ def main():
                     strategy,
                     budget,
                     final_time=args.final_time,
+                    balancing=not args.no_balance,
                     lookahead=not args.no_lookahead,
                 )
                 row["wall_seconds"] = perf_counter() - start
@@ -85,7 +87,10 @@ def main():
                 (args.output / "measurements.json").write_text(
                     json.dumps(
                         {
-                            "indicator": "hierarchical-haar-v2-partial: subtree detail energy and limited child prediction",
+                            "indicator": row["adaptation"],
+                            "balance": "componentwise face 2:1; budget before closure"
+                            if not args.no_balance
+                            else "disabled",
                             "initializer": "four-slab directional variance with optional translated initial-data probes",
                             "ranking": "subtree energy / added leaves; directional predicted split on strongest axis",
                             "max_level_per_axis": 9,
@@ -115,7 +120,11 @@ def main():
                     f"seconds={row['wall_seconds']:.1f}",
                     flush=True,
                 )
-    keys = [k for k in rows[0] if k not in ("cell_history", "volume_weighted_levels")]
+    keys = [
+        k
+        for k in rows[0]
+        if k not in ("cell_history", "volume_weighted_levels", "balance_history")
+    ]
     with (args.output / "measurements.csv").open("w", newline="") as file:
         writer = csv.DictWriter(file, keys, extrasaction="ignore")
         writer.writeheader()

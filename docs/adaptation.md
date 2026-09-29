@@ -27,7 +27,8 @@ box mapping after normalization; no rectangle-keyed value lookup is needed.
 
 Analytic initialization retains the earlier slab-based initializer, including
 its optional translated initial-data probes. Subsequent adaptation uses only
-the computed field. Results carry `adaptation: hierarchical-haar-v2-partial`.
+the computed field. Unbalanced runs carry `adaptation: hierarchical-haar-v2-partial`;
+balanced runs use `hierarchical-haar-v3-balanced` as described below.
 
 The stack traversal is based on the algorithm in
 [`transform_to_all_wavelet_coefficients`](https://github.com/freifrauvonbleifrei/wavelets_with_omnitrees/blob/main/wavelets_with_omnitrees.py);
@@ -35,3 +36,27 @@ local blocks here use butterfly operations rather than dense matrices.
 
 The reports linked from the project README distinguish the historical slab,
 whole-branch Haar, and partial-axis Haar methods.
+
+## Componentwise face 2:1 balance
+
+The current `hierarchical-haar-v3-balanced` experiment applies a refinement-only
+balance closure after initial adaptation and after every numerical regrid.
+For each pair of leaves sharing a positive-area face patch, every directional
+level difference must be at most one. Edge-only and corner-only contacts do not
+participate. Aspect ratios within individual cells remain unrestricted.
+
+Each pass marks the directionally coarser leaf along every offending axis,
+bisects those axes, and repeats until no violations remain. New cell averages
+come from the bounded conservative linear reconstruction; normalization uses
+DyAda's old-to-new leaf mapping. Initial values are evaluated analytically on
+the final balanced geometry. No direction exceeds the initial mesh's global
+maximum level in that direction during closure.
+
+The cell budget constrains energy-based selection **before balancing**. Closure
+may exceed it; `balance_history` records input/output counts, added cells, and
+iteration counts at every adaptation. `maximum_cells` records the largest mesh
+used for transport. Comparisons must use actual cell counts, not just targets.
+The existing energy marking and optional velocity-based look-ahead are retained;
+balancing itself has no velocity input and does not guarantee a predictive buffer.
+Use `--no-balance` in the benchmark or animation CLI to reproduce the previous
+unbalanced numerical method.

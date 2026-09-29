@@ -22,6 +22,7 @@ from dyada.refinement import normalize_discretization
 
 from omnitree_iterators import Bounds, Omnitree
 from omnitree_iterators.validation.advection import UpwindTransport
+from omnitree_iterators.validation.balancing import balance_mesh
 from omnitree_iterators.validation.haar import regrid
 
 
@@ -276,6 +277,7 @@ def adaptive_experiment(
     final_time: float = 0.3,
     regrid_interval: float = 0.1,
     lookahead: bool = True,
+    balancing: bool = True,
     observer: Callable[[float, Omnitree, np.ndarray], None] | None = None,
 ) -> dict:
     if case == "stripe3d":
@@ -297,6 +299,20 @@ def adaptive_experiment(
         if lookahead
         else None,
     )
+    balance_history = []
+    if balancing:
+        mesh, values, stats = balance_mesh(mesh, values)
+        # Initial data are known analytically; initialize the final geometry.
+        values = np.array([profile.average(c.bounds, 0) for c in mesh])
+        balance_history.append(
+            {
+                "time": 0.0,
+                "input_cells": stats.input_cells,
+                "output_cells": stats.output_cells,
+                "added_cells": stats.added_cells,
+                "rounds": stats.rounds,
+            }
+        )
     mass0 = sum(float(c.volume) * u for c, u in zip(mesh, values))
     initial_keys = {c.key for c in mesh}
     time = budget_flux = balance = remap_error = 0.0
@@ -336,6 +352,17 @@ def adaptive_experiment(
                 if lookahead
                 else None,
             )
+            if balancing:
+                mesh, values, stats = balance_mesh(mesh, values)
+                balance_history.append(
+                    {
+                        "time": time,
+                        "input_cells": stats.input_cells,
+                        "output_cells": stats.output_cells,
+                        "added_cells": stats.added_cells,
+                        "rounds": stats.rounds,
+                    }
+                )
             after_mass = sum(float(c.volume) * u for c, u in zip(mesh, values))
             remap_error = max(remap_error, abs(after_mass - before_mass))
             balance = max(balance, abs(after_mass - mass0 + budget_flux))
@@ -352,7 +379,12 @@ def adaptive_experiment(
     levels = np.array([c.level for c in mesh])
     aspects = np.array([2.0 ** (max(c.level) - min(c.level)) for c in mesh])
     return {
-        "adaptation": "hierarchical-haar-v2-partial",
+        "adaptation": "hierarchical-haar-v3-balanced"
+        if balancing
+        else "hierarchical-haar-v2-partial",
+        "balancing": balancing,
+        "balance_history": balance_history,
+        "maximum_cells": max(h["cells"] for h in history),
         "case": case,
         "strategy": strategy,
         "budget": budget,

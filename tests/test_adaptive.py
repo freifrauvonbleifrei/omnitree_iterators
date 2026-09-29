@@ -77,8 +77,8 @@ def test_reconstruction_and_remapping_conserve_mass_and_bounds():
 
 @pytest.mark.parametrize("case", ["stripe3d", "ellipsoid3d"])
 def test_dynamic_advection_at_matched_budget(case):
-    directional = adaptive_experiment(case, "directional", 64)
-    isotropic = adaptive_experiment(case, "isotropic", 64)
+    directional = adaptive_experiment(case, "directional", 64, balancing=False)
+    isotropic = adaptive_experiment(case, "isotropic", 64, balancing=False)
     assert 8 <= directional["cells"] <= 64
     assert 8 <= isotropic["cells"] <= 64
     for result in (directional, isotropic):
