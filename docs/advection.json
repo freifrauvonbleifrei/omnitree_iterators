@@ -1,7 +1,7 @@
 {
   "slice_z": 0.65,
-  "frames": 166,
-  "fps": 10,
+  "frames": 76,
+  "fps": 5,
   "display": "Latest numerical state, held until the next actual solver step; no extra time steps.",
   "analytical": "Pointwise exact Gaussian at the display time on the fixed z slice; numerical panels hold their labelled solver times.",
   "measurements": [
@@ -353,5 +353,11 @@
       "max_aspect_ratio": 1.0,
       "changed_leaf_keys": 728
     }
-  ]
+  ],
+  "source_frames": 166,
+  "compression": {
+    "temporal_stride": 2,
+    "palette_colors": 128,
+    "duration_ms": 16600
+  }
 }
